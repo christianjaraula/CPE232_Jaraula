@@ -1,1 +1,4 @@
 # CPE232_Jaraula
+
+ACTIVITY2_SSH GIT
+
