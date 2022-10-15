@@ -24,7 +24,7 @@
   
   - name: install apache and php for Ubuntu servers
     tags: apache,apache2,ubuntu
-    apt:
+    apt: 
       name:
         - apache2
         - libapache2-mod-php
@@ -47,6 +47,15 @@
       name: httpd
       state: started
     when: ansible_distribution == "CentOS"
+
+  - name: copy defailt html file for site
+    tags: apache,apache2,httpd,copy
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
 
 - hosts: db_servers
   become: true
